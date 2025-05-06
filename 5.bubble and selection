@@ -1,0 +1,27 @@
+A=[] 
+a=int(input("enter the total student=",)) 
+for i in range  (a) : 
+    r=float(input(f"enter the rollno{i+1} percentage =",)) 
+    A.append(r)   
+def bubble(): 
+ for p in range (a-1): 
+        
+    for i in range (a-p-1): 
+      if A[i]>A[i+1]: 
+        A[i],A[i+1]=A[i+1],A[i]     
+ print("bubble sort=",A) 
+bubble()         
+def selection(): 
+    for i in range (a-1): 
+        min=A[i] 
+        minmid=i 
+        for j in range ((i+1),(a-1)) : 
+            if A[i]>A[j]: 
+                min=A[j] 
+                minmid=j        
+        A[i],A[minmid]=A[minmid],A[i]  
+    print("selection sort",A) 
+selection() 
+print("top 5  marks are") 
+r=A[a-5:] 
+print(r[::-1]) 
