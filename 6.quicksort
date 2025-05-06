@@ -1,0 +1,25 @@
+A=[] 
+n=int(input("Enter total number of  students:")) 
+for i in range(n): 
+    p=float(input("Enter percentage of student:")) 
+    A.append(p) 
+print("input is ",A) 
+def partition(s,e): 
+    piv=A[e] 
+    pin=s 
+    for i in range (s,e): 
+        if A[i]<piv: 
+            A[i],A[pin]=A[pin],A[i] 
+            pin=pin+1           
+    A[pin],A[e]=A[e],A[pin] 
+    return pin 
+def qs(s,e): 
+    if s<e: 
+      pin=partition(s,e) 
+      qs(s,pin-1) 
+      qs(pin+1,e) 
+  
+qs(0,n-1) 
+print("after sorting ",A) 
+r=A[n-5:] 
+print("top 5  percentage are",r[::-1]) 
