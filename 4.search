@@ -1,0 +1,100 @@
+A=[] 
+a=int(input("enter the no of student attending the training program:")) 
+for i in range (a): 
+    r=int(input(" roll number of student=")) 
+    A.append(r) 
+def linearsearch(): 
+ f=0 
+ key=int(input("key",)) 
+ for i in range (a): 
+      if A[i]==key: 
+         f=1 
+         break; 
+ if f==1 : 
+     print("present") 
+ else: 
+     print(" not present") 
+#linearsearch() 
+   
+ 
+def sentinal(): 
+    key=int(input("enter key")) 
+    A.append(key) 
+    i=0 
+    while(A[i]!=key): 
+        i=i+1 
+         
+    print(i) 
+    if i<a : 
+           print(" present") 
+    else: 
+           print(" not present") 
+#sentinal() 
+def binary(): 
+   key=int(input()) 
+   low=0 
+   high=a-1 
+   f=0 
+   while (low<=high): 
+       mid=(low+high)//2 
+       if A[i]==key : 
+        f=1 
+         
+        break; 
+       elif A[i]<key:  
+         high=mid-1 
+       else: 
+        low=mid+1 
+   if f==1: 
+       print("present") 
+   else: 
+       print("not present") 
+#binary() 
+def fibonaccisearch(): 
+    f=1 
+    f1=1 
+    f2=0 
+    while f<a : 
+        f2=f1 
+        f1=f 
+        f=f1+f2 
+    i=0 
+    offset=-1 
+    flag=0 
+    key=int(input("enter the key")) 
+    while f>=1: 
+        i=min(offset+f2,a-1) 
+        if A[i]==key: 
+            flag=1  
+            break; 
+        elif A[i]<key: 
+            f=f1 
+            f1=f2  
+            f2=f-f1 
+            offset=i 
+        else: 
+            f=f2 
+            f1=f1-f2 
+            f2=f-f1 
+    if flag==1: 
+         print("key is present") 
+    else: 
+          print("not present") 
+#fibonaccisearch()     
+while(1): 
+    print("1.linearsearch,2.sentinal,3.binary,4.fibonaccisearch") 
+    ch=int(input("enter choice")) 
+    if ch==1: 
+       linearsearch() 
+       break; 
+    elif ch==2: 
+        sentinal() 
+        break; 
+    elif ch==3: 
+        binary() 
+        break; 
+    elif ch==4: 
+        fibonaccisearch() 
+        break; 
+    else: 
+        print("invalid choice") 
