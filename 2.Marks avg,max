@@ -1,0 +1,74 @@
+U=[]
+u=int(input("enter the strength"))
+for i in range(1,u+1):
+    U.append(i)
+print(U)
+    
+P=[]
+p=int(input("enter the no.of present student"))
+for i in range(p):
+    roll=int(input("enter roll no.of present student"))
+    P.append(roll)
+print(P)
+M=[]
+m=int(input("enter the no.of present student"))
+for i in range(m):
+    roll=int(input("enter the marks of present student"))
+    M.append(roll)
+
+def avg():
+    sum=0
+    for i in range(m):
+        sum=sum+M[i]
+    print("Total sum=",sum)
+    sum=sum/p;
+    print("average=",sum)
+avg()
+
+def maxi():
+    max=M[0]
+    for i in range(m):
+        if max<M[i]:
+            max=M[i]
+    print("maximum score=",max)
+maxi()
+
+def mini():
+    min=M[0]
+    for i in range(m):
+        if min>M[i]:
+            min=M[i]
+    print("Minimum score=",min)
+mini()
+
+
+def ab():
+    A=[]
+    
+    for i in range(u):
+        flag=0
+        for j in range(p):
+             if U[i]==P[j]:
+                flag=1
+                break;
+        if flag==0:
+           A.append(U[i])
+    print("absent students are=",A) 
+ab()    
+
+def maxfreq():
+  F=[]
+  for i in range(p):
+      F.append(0)
+  for i in range (p):
+      for j in range (p):
+          if M[i]==M[j]:
+              F[i]=F[i]+1
+  maxfre=M[0]
+  maxind=0
+  for i in range(p):
+      if F[i]>maxfre:
+          maxfre=F[i]
+          maxind=i
+  print("maxfrequency=",maxfre)
+maxfreq()
