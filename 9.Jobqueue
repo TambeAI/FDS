@@ -1,0 +1,99 @@
+#include<iostream> 
+using namespace std; 
+#define max 100 
+int f=0,r=-1; 
+int q[max],n; 
+ int isempty() 
+ { 
+  if(f>r) 
+  { 
+   return 1; 
+   
+  } 
+  else 
+  { 
+  return 0; 
+} 
+ } 
+ int isfull() 
+ { 
+  if(r==max-1) 
+  { 
+   return 1; 
+  } 
+  else 
+  { 
+   return 0; 
+  } 
+ } 
+ void enqueue() 
+ { 
+  if(isfull()){ 
+   cout<<"\n job is full"; 
+  } 
+  else 
+  {  
+   int e; 
+   
+       r++; 
+    cout<<"\nEnter job"; 
+    cin>>e; 
+    q[r]=e; 
+     cout<<"job is  "<<e<<" added"; 
+  } 
+ } 
+  
+ void display() 
+ { 
+  if(isempty()) 
+  { 
+   cout<<"\n job is empty"; 
+  } 
+  else 
+  {   cout<<"\n job in queue="; 
+   for(int i=f;i<=r;i++) 
+   { 
+    cout<<" "<<q[i]; 
+   } 
+  } 
+ } 
+ void dequeue() 
+ { 
+  if(isempty()) 
+  { 
+   cout<<"\n job is empty "; 
+  } 
+  else 
+  { char ch; 
+     
+      
+   cout<<"\n"<<q[f]<<" is deleted"; 
+   f++; 
+   
+  } 
+ } 
+ int main() 
+ { 
+  int ch; 
+  char s; 
+  do{ 
+   cout<<"\n1.enqueue,\n2.dequeue \n3.display"; 
+   cout<<"\nenter your choice"; 
+   cin>>ch; 
+  switch(ch) { 
+             
+            case 1: enqueue(); 
+                    break; 
+            case 2: dequeue(); 
+                  break; 
+           case 3:display(); 
+             break; 
+           default:cout<<"\n invalid choice"; 
+            
+   }cout<<"\n do you want to continue y/n "; 
+   cin>>s;  
+   }while(s=='y'); 
+ return 0; 
+   
+ } 
+  
