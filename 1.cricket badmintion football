@@ -1,0 +1,96 @@
+# Input total number of students
+U = []
+u = int(input("Enter the number of total students: "))
+for i in range(1, u + 1):
+    U.append(i)
+
+# Input cricket players
+A = []
+a = int(input("Enter the number of students who like cricket: "))
+for i in range(a):
+    r = int(input("Enter the roll number who plays cricket: "))
+    A.append(r)
+
+# Input badminton players
+B = []
+b = int(input("Enter the number of students who like badminton: "))
+for i in range(b):
+    r = int(input("Enter the roll number who plays badminton: "))
+    B.append(r)
+
+# Input football players
+C = []
+c = int(input("Enter the number of students who like football: "))
+for i in range(c):
+    r = int(input("Enter the roll number who plays football: "))
+    C.append(r)
+
+print("List of all students:", U)
+print("Students who play cricket:", A)
+print("Students who play badminton:", B)
+print("Students who play football:", C)
+
+# Students who play both cricket and badminton (intersection)
+R1 = []
+for i in range(a):
+    for j in range(b):
+        if A[i] == B[j]:
+            R1.append(A[i])
+            break
+print("\nStudents who play both cricket and badminton:", R1)
+
+# Students who play either cricket or badminton but not both
+T1 = []
+for i in range(a):
+    T1.append(A[i])
+
+for i in range(b):
+    flag = 0
+    for j in range(a):
+        if B[i] == A[j]:
+            flag = 1
+            break
+    if flag == 0:
+        T1.append(B[i])
+
+R2 = []
+for i in range(len(T1)):
+    flag = 0
+    for j in range(len(R1)):
+        if T1[i] == R1[j]:
+            flag = 1
+            break
+    if flag == 0:
+        R2.append(T1[i])
+print("\nStudents who play either cricket or badminton but not both:", R2)
+
+# Students who play neither cricket nor badminton
+R3 = []
+for i in range(u):
+    flag = 0
+    for j in range(len(T1)):
+        if U[i] == T1[j]:
+            flag = 1
+            break
+    if flag == 0:
+        R3.append(U[i])
+print("\nStudents who play neither cricket nor badminton:", R3)
+
+# Students who play cricket and football but not badminton
+T2 = []
+for i in range(a):
+    for j in range(c):
+        if A[i] == C[j]:
+            T2.append(A[i])
+            break
+
+R4 = []
+for i in range(len(T2)):
+    flag = 0
+    for j in range(len(B)):
+        if T2[i] == B[j]:
+            flag = 1
+            break
+    if flag == 0:
+        R4.append(T2[i])
+print("\nStudents who play cricket and football but not badminton:", R4)
